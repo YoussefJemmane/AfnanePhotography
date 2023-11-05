@@ -72,7 +72,7 @@ export default function Slider() {
                 <li>
                   <img
                     src={slide.url}
-                    className="w-full max-w-full max-h-full m-auto h-full  rounded-xl bg-center bg-cover duration-500"
+                    className="w-full max-w-full max-h-full m-auto h-full  rounded-md bg-center bg-cover duration-500"
                   />
                 </li>
               ))

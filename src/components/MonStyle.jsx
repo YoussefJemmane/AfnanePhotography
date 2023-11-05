@@ -43,7 +43,7 @@ const MonStyle = () => {
             </div>
             <div className="relative w-full glide-08">
                 <div
-                    className="overflow-hidden text-center bg-white rounded shadow-2xl text-slate-500 shadow-slate-200 "
+                    className="overflow-hidden text-center bg-white rounded-md shadow-2xl text-slate-500 shadow-slate-200 "
                     data-glide-el="track"
                 >
                     <ul className="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full overflow-hidden p-0">
