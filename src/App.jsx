@@ -7,14 +7,10 @@ import Sliders from "./components/Slider.jsx";
 function App() {
   const [loading, setLoading] = useState(true);
 
-  setTimeout(() => {
-    setLoading(false);
-  }
-  , 2000);
+  
   return (
     <>
-    {
-      loading ? <Loading /> : 
+    
      <div>
 
        <Navbar />
@@ -24,8 +20,7 @@ function App() {
  
        <MonStyle />
      </div> 
-    }
-      
+     
 
     </>
   )
