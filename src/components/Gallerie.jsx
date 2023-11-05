@@ -12,7 +12,7 @@ const Gallerie = () => {
     const [selectedSeance, setSelectedSeance] = React.useState('')
     const images = [
         {
-            photo: "img1",
+            photo: img1,
             id: 1,
             title: "photo1"
         },
