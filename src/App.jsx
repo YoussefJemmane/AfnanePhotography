@@ -11,10 +11,9 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulating a delay of 2 seconds for demonstration purposes
-    setTimeout(() => {
+    window.onload = () => {
       setLoading(false);
-    }, 2000);
+    };
   }, []);
   
   return (
