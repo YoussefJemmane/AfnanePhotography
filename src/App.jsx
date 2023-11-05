@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Loading from "./components/Loading.jsx";
 import MonStyle from "./components/MonStyle.jsx";
 import Navbar from "./components/Navbar.jsx";
@@ -8,28 +8,28 @@ import Gallerie from "./components/Gallerie.jsx";
 import Tarifs from "./components/Tarifs.jsx";
 
 function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    window.onload = () => {
-      setLoading(false);
-    };
-  }, []);
+  
   
   return (
     <>
-      {loading ? (
-        <Loading />
-      ) : (
-        <div>
-          <Navbar />
-          <Sliders />
-          <MonStyle />
-          <Seances />
-          <Gallerie />
-          <Tarifs />
-        </div>
-      )}
+    
+     <div>
+
+       <Navbar />
+ 
+       <Sliders />
+ 
+ 
+       <MonStyle />
+
+       <Seances />
+
+       <Gallerie />
+
+       <Tarifs />
+     </div> 
+     
+
     </>
   )
 }
