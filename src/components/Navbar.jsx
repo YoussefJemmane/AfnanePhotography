@@ -55,7 +55,7 @@ const Navbar = () => {
           </button>
         </div>
         {isMobileMenuOpen && (
-          <ul className="lg:hidden bg-white px-4 py-2 my-4 space-y-2 animate-fade-down animate-once rounded-md"
+          <ul className="lg:hidden bg-white text-slate-500 px-4 py-2 my-4 space-y-2 animate-fade-down animate-once rounded-md"
 
 
           >
