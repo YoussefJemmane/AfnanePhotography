@@ -12,7 +12,7 @@ const Gallerie = () => {
     const [selectedSeance, setSelectedSeance] = React.useState('')
     const images = [
         {
-            photo: img1,
+            photo: "img1",
             id: 1,
             title: "photo1"
         },
@@ -129,7 +129,7 @@ const Gallerie = () => {
                         Gallerie
                     </h2>
                 </div>
-                <select className="w-full mb-4 p-2 border border-gray-300 bg-[#ffffff] rounded-md" onChange={handleSeanceChange}>
+                <select className=" mb-4 p-2  bg-[#ffffff] rounded-md" onChange={handleSeanceChange}>
                     <option value="">Select a seance</option>
                     {gallerie.map((gallerie) => (
                         <option key={gallerie.text} value={gallerie.text}>
@@ -147,8 +147,8 @@ const Gallerie = () => {
                                 </div>
                             ))
                         ) : (
-                            <div className="bg-gray-200 p-4 rounded-md">
-                                <p className="text-gray-600">Il n'y a aucune image dans cette séance. Soyez le premier à contribuer à cette collection !</p>
+                            <div className="bg-white p-4 rounded-md">
+                                <p className="text-[#3f4042]">Il n'y a aucune image dans cette séance. Soyez le premier à contribuer à cette collection !</p>
                             </div>
                         )}
                     </div>

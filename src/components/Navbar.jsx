@@ -28,8 +28,22 @@ const Navbar = () => {
             <img src={logo} alt="" width={200} height={200} />
           </a>
           <ul className="hidden lg:flex space-x-4 text-[#3f4042]">
-            <li>Galerie</li>
-            <li>Les tarifs</li>
+            <li>
+              <a href="#gallerie">
+                Galerie
+
+              </a>
+
+
+            </li>
+            <li>
+              <a href="tarifs">
+                Les tarifs
+
+
+              </a>
+
+            </li>
             <li>Contact</li>
           </ul>
           <button
