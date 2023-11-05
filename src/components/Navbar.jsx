@@ -11,7 +11,7 @@ const Navbar = () => {
     <>
       <nav className=" p-4 sticky bg-opacity-50 bg-pink-100  top-0 w-full z-10 animate-fade-right animate-once">
         <div className="flex justify-between items-center">
-          <ul className="hidden lg:flex space-x-4 text-black">
+          <ul className="hidden lg:flex space-x-4 text-slate-500">
             <li><a href="#mon_style">Mon Style</a> </li>
             <li>Les séances</li>
           </ul>
@@ -19,13 +19,13 @@ const Navbar = () => {
 
             <img src={logo} alt="" width={200} height={200} />
           </a>
-          <ul className="hidden lg:flex space-x-4 text-black">
+          <ul className="hidden lg:flex space-x-4 text-slate-500">
             <li>Galerie</li>
             <li>Les tarifs</li>
             <li>Contact</li>
           </ul>
           <button
-            className="lg:hidden text-black"
+            className="lg:hidden text-slate-500"
             onClick={handleMobileMenuToggle}
           >
             {/* svg of a hamburger menu */}
