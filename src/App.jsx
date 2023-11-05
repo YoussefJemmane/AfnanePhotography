@@ -4,6 +4,7 @@ import MonStyle from "./components/MonStyle.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Sliders from "./components/Slider.jsx";
 import Seances from "./components/Seances.jsx";
+import Gallerie from "./components/Gallerie.jsx";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -22,6 +23,8 @@ function App() {
        <MonStyle />
 
        <Seances />
+
+       <Gallerie />
      </div> 
      
 
