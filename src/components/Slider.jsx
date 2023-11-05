@@ -63,7 +63,7 @@ export default function Slider() {
   return (
     <>
       {/*<!-- Component: Slider with indicators & controls inside --> */}
-      <div className=" w-full m-auto p-[10px]  group animate-fade-right animate-once glide-03" id="#slider">
+      <div className=" w-full m-auto p-[10px]  group animate-fade-right animate-once glide-03 " id="slider">
         {/*    <!-- Slides --> */}
         <div className="overflow-hidden" data-glide-el="track">
           <ul className="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full overflow-hidden p-0">

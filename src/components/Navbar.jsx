@@ -13,7 +13,15 @@ const Navbar = () => {
         <div className="flex justify-between items-center">
           <ul className="hidden lg:flex space-x-4 text-[#3f4042]">
             <li><a href="#mon_style">Mon Style</a> </li>
-            <li>Les séances</li>
+            <li>
+              <a href="#les_seances">
+
+                Les séances
+
+              </a>
+
+
+            </li>
           </ul>
           <a href="#slider">
 
@@ -60,7 +68,14 @@ const Navbar = () => {
 
           >
             <li><a href="#mon_style">Mon Style</a> </li>
-            <li>Les séances</li>
+            <li>
+              <a href="#les_seances">
+
+                Les séances
+
+              </a>
+
+            </li>
             <li>Galerie</li>
             <li>Les tarifs</li>
             <li>Contact</li>
