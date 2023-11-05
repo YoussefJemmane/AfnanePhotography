@@ -3,29 +3,30 @@ import React, { useEffect } from "react"
 const MonStyle = () => {
     const styles = [
         {
-            text: "Séance photo Nouveau né ",
+            text: "Nouveau né ",
             desc: "Votre minuscule bébé ne tiendra bientôt plus dans vous mains, la séance naissance vous aidera à vous souvenir de ces précieux moments ",
         },
         {
-            text: "Séance photo Bébé",
+            text: "Bébé",
             desc: "Votre bébé grandit si vite, chaque jour est une bonne occasion de faire un shooting photo "
         },
         {
-            text: "Séance photo Grossesse",
+            text: "Grossesse",
             desc: "Venez vivre l’expérience d’un shooting grossesse "
         },
         {
-            text : "Séance photo Famille",
+            text : "Famille",
             desc : "Venez tous ensemble pour de belles photos que vous serez heureux de revoir dans quelques années."
         },
         {
-            text : "Séance photo Smash cake",
+            text : "Smash cake",
             desc : "Votre tout petit va bientôt fêter son premier anniversaire ? Chic, c’est l’occasion rêvée d’avoir de merveilleux souvenirs et de s’amuser !"
         },
         {
-            text : "Séance photo Professional",
+            text : "Professional",
             desc : "Osez prendre la pose, osez penser à vous. Oui, cela fait un bien fou ! "
-        }
+        },
+       
     ]
 
     return (
@@ -39,7 +40,7 @@ const MonStyle = () => {
                 {styles.map((style, index) => (
                     <div key={index} className="bg-white rounded-md shadow-slate-200 shadow-2xl p-4">
                         <h3 className="text-lg font-bold text-[#3f4042] mb-2">{style.text}</h3>
-                        <p className="text-[#3f4042]">{style.desc}</p>
+                        <p className="text-[#3f4042]">{style.desc && style.desc}</p>
                     </div>
                 ))}
             </div>

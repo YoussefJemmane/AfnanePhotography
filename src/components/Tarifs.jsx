@@ -6,7 +6,7 @@ const Tarifs = () => {
 
     const tarifs = [
         {
-            text: "Séance photo Nouveau né",
+            text: "Nouveau né",
             price: "1200 dh",
             duration: "Environ 2h de séance photo",
             details: [
@@ -16,7 +16,7 @@ const Tarifs = () => {
             ]
         },
         {
-            text: "Séance photo Bébé",
+            text: "Bébé",
             price: "600 dh",
             duration: "Environ 1h de séance photo",
             details: [
@@ -26,7 +26,7 @@ const Tarifs = () => {
             ]
         },
         {
-            text: "Séance photo smash cake",
+            text: "smash cake",
             price: "700 dh",
             duration: "Environ 1h30 de séance photo",
             details: [
@@ -37,7 +37,7 @@ const Tarifs = () => {
             ]
         },
         {
-            text: "Séance photo Grossesse",
+            text: "Grossesse",
             price: "500 dh",
             duration: "Environ 1h30 de séance photo",
             details: [
@@ -47,7 +47,7 @@ const Tarifs = () => {
             ]
         },
         {
-            text: "Séance photo famille",
+            text: "famille",
             price: "500 dh",
             duration: "Environ 1h de séance photo",
             details: [
@@ -56,7 +56,7 @@ const Tarifs = () => {
             ]
         },
         {
-            text: "Séance photo Professional",
+            text: "Professional",
             price: "300 dh",
             duration: "Environ 30min de séance photo",
             details: [
@@ -64,7 +64,7 @@ const Tarifs = () => {
             ]
         },
         {
-            text: "Séance mode",
+            text: "Mode",
             price: "700 dh",
             duration: "Une photo de profil, Des photos mode, Un portrait artistique."
         }

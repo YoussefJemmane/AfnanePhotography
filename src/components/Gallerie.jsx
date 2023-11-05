@@ -1,108 +1,109 @@
 import React from 'react'
-import img1 from "../assets/im1.jpg"
-import img2 from "../assets/IMG20231005165037.jpg"
-import img3 from "../assets/imp2.jpg"
-import img4 from "../assets/_MG_1107.jpg"
-import img5 from "../assets/_MG_1180.jpg"
-import img6 from "../assets/_MG_1205.jpg"
 
+import photoss from '../data/photos'
+console.log(photoss)
 const Gallerie = () => {
     const [photos, setPhotos] = React.useState([])
-    const [seances, setSeances] = React.useState([])
     const [selectedSeance, setSelectedSeance] = React.useState('')
     const images = [
         {
-            photo: img1,
+            photo: photoss[0],
             id: 1,
             title: "photo1"
         },
         {
-            photo: img2,
+            photo: photoss[1],
             id: 2,
             title: "photo2"
         },
         {
-            photo: img3,
+            photo: photoss[2],
             id: 3,
             title: "photo3"
         },
         {
-            photo: img4,
+            photo: photoss[3],
             id: 4,
             title: "photo4"
         },
         {
-            photo: img5,
+            photo: photoss[4],
             id: 5,
             title: "photo5"
         },
         {
-            photo: img6,
+            photo: photoss[5],
             id: 6,
             title: "photo6"
         }
     ]
     const gallerie = [
         {
-            text: "Séance photo Nouveau né ",
+            text: "Nouveau né ",
             images: [
                 {
-                    photo: img1,
+                    photo: photoss[0],
                     id: 1,
                     title: "photo1"
                 },
                 {
-                    photo: img2,
+                    photo: photoss[1],
                     id: 2,
                     title: "photo2"
                 },
                 {
-                    photo: img3,
+                    photo: photoss[2],
                     id: 3,
                     title: "photo3"
                 }
             ]
         },
         {
-            text: "Séance photo Bébé",
+            text: "Bébé",
             images: [
                 {
-                    photo: img4,
+                    photo: photoss[3],
                     id: 4,
                     title: "photo4"
                 },
                 {
-                    photo: img5,
+                    photo: photoss[4],
                     id: 5,
                     title: "photo5"
                 },
                 {
-                    photo: img6,
+                    photo:photoss[5],
                     id: 6,
                     title: "photo6"
                 }
             ]
         },
         {
-            text: "Séance photo Grossesse",
+            text: "Grossesse",
             images: [
 
             ]
         },
         {
-            text: "Séance photo Famille",
+            text: "Famille",
             images: [
 
             ]
         },
         {
-            text: "Séance photo Smash cake",
+            text: "Smash cake",
             images: [
 
             ]
         },
         {
-            text: "Séance photo Professional",
+            text: "Professional",
+            images: [
+
+            ]
+        },
+        {
+            text: "Mode",
             images: [
 
             ]
@@ -142,7 +143,7 @@ const Gallerie = () => {
                         {photos.length > 0 ? (
                             photos.map((photo) => (
                                 <div key={photo.id} className="  rounded-md">
-                                    <img src={photo.photo} alt={photo.title} className="w-full h-auto rounded-md" />
+                                    <img src={photo.photo} alt={photo.title} className="w-full h-auto rounded-md" loading="lazy" />
 
                                 </div>
                             ))
