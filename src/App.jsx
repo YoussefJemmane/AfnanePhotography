@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Loading from "./components/Loading.jsx";
 import MonStyle from "./components/MonStyle.jsx";
 import Navbar from "./components/Navbar.jsx";
