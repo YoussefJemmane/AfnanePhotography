@@ -1,5 +1,11 @@
 import React, { useEffect } from "react"
 import Glide from "@glidejs/glide"
+import img1 from "../assets/PhotosAccueil-003.jpg"
+import img2 from "../assets/_MG_1604.jpg"
+import img3 from "../assets/_MG_1641.jpg"
+import img4 from "../assets/_MG_1107.jpg"
+import img5 from "../assets/_MG_1180.jpg"
+import img6 from "../assets/_MG_1205.jpg"
 
 export default function Slider() {
   useEffect(() => {
@@ -24,28 +30,28 @@ export default function Slider() {
   const slides = [
     {
       type: "landscape",
-      url: '../assets/PhotosAccueil-003.jpg',
+      url: img1
     },
     {
       type: "landscape",
-      url: '../assets/MG_1604.jpg',
+      url: img2
     },
 
     {
       type: "landscape",
-      url: '../assets/MG_1641.jpg',
+      url: img3
     },
     {
       type: "portrait",
-      url: "../assets/_MG_1107.jpg"
+      url: img4
     },
     {
       type: "portrait",
-      url: "../assets/_MG_1180.jpg"
+      url: img5
     },
     {
       type: "portrait",
-      url: "../assets/_MG_1205.jpg"
+      url: img6
     },
 
   ];
