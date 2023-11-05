@@ -10,27 +10,27 @@ import Tarifs from "./components/Tarifs.jsx";
 function App() {
   const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    // Simulating a delay of 2 seconds for demonstration purposes
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
   
   return (
     <>
-    
-     <div>
-
-       <Navbar />
- 
-       <Sliders />
- 
- 
-       <MonStyle />
-
-       <Seances />
-
-       <Gallerie />
-
-       <Tarifs />
-     </div> 
-     
-
+      {loading ? (
+        <Loading />
+      ) : (
+        <div>
+          <Navbar />
+          <Sliders />
+          <MonStyle />
+          <Seances />
+          <Gallerie />
+          <Tarifs />
+        </div>
+      )}
     </>
   )
 }
