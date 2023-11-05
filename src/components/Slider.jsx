@@ -28,24 +28,24 @@ export default function Slider() {
     },
     {
       type: "landscape",
-      url: '../assets/MG_1604.JPG',
+      url: '../assets/MG_1604.jpg',
     },
 
     {
       type: "landscape",
-      url: '../assets/MG_1641.JPG',
+      url: '../assets/MG_1641.jpg',
     },
     {
       type: "portrait",
-      url: "../assets/_MG_1107.JPG"
+      url: "../assets/_MG_1107.jpg"
     },
     {
       type: "portrait",
-      url: "../assets/_MG_1180.JPG"
+      url: "../assets/_MG_1180.jpg"
     },
     {
       type: "portrait",
-      url: "../assets/_MG_1205.JPG"
+      url: "../assets/_MG_1205.jpg"
     },
 
   ];
