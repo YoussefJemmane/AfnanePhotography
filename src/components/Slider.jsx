@@ -24,28 +24,28 @@ export default function Slider() {
   const slides = [
     {
       type: "landscape",
-      url: '../src/assets/famille/PhotosAccueil-003.jpg',
+      url: '../src/assets/PhotosAccueil-003.jpg',
     },
     {
       type: "landscape",
-      url: '../src/assets/smashcake/MG_1604.JPG',
+      url: '../src/assets/MG_1604.JPG',
     },
 
     {
       type: "landscape",
-      url: '../src/assets/smashcake/MG_1641.JPG',
+      url: '../src/assets/MG_1641.JPG',
     },
     {
       type: "portrait",
-      url: "../src/assets/bebe/_MG_1107.JPG"
+      url: "../src/assets/_MG_1107.JPG"
     },
     {
       type: "portrait",
-      url: "../src/assets/bebe/_MG_1180.JPG"
+      url: "../src/assets/_MG_1180.JPG"
     },
     {
       type: "portrait",
-      url: "../src/assets/bebe/_MG_1205.JPG"
+      url: "../src/assets/_MG_1205.JPG"
     },
 
   ];
