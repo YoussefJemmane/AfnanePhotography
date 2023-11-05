@@ -1,20 +1,32 @@
+import { useState } from "react";
+import Loading from "./components/Loading.jsx";
 import MonStyle from "./components/MonStyle.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Sliders from "./components/Slider.jsx";
-import { register } from 'swiper/element/bundle';
-// register Swiper custom elements
-register();
-function App() {
 
+function App() {
+  const [loading, setLoading] = useState(true);
+
+  setTimeout(() => {
+    setLoading(false);
+  }
+  , 2000);
   return (
     <>
-<Navbar />
+    {
+      loading ? <Loading /> : 
+     <div>
 
-        <Sliders />
-        
+       <Navbar />
+ 
+       <Sliders />
+ 
+ 
+       <MonStyle />
+     </div> 
+    }
+      
 
-        <MonStyle />
-          
     </>
   )
 }
