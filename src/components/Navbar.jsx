@@ -9,9 +9,9 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className=" p-4 sticky bg-opacity-50 bg-pink-100  top-0 w-full z-10 animate-fade-right animate-once">
+      <nav className=" p-4 sticky bg-opacity-50 bg-[#fac9be]  top-0 w-full z-10 animate-fade-right animate-once">
         <div className="flex justify-between items-center">
-          <ul className="hidden lg:flex space-x-4 text-slate-500">
+          <ul className="hidden lg:flex space-x-4 text-[#3f4042]">
             <li><a href="#mon_style">Mon Style</a> </li>
             <li>Les séances</li>
           </ul>
@@ -19,13 +19,13 @@ const Navbar = () => {
 
             <img src={logo} alt="" width={200} height={200} />
           </a>
-          <ul className="hidden lg:flex space-x-4 text-slate-500">
+          <ul className="hidden lg:flex space-x-4 text-[#3f4042]">
             <li>Galerie</li>
             <li>Les tarifs</li>
             <li>Contact</li>
           </ul>
           <button
-            className="lg:hidden text-slate-500"
+            className="lg:hidden text-[#3f4042]"
             onClick={handleMobileMenuToggle}
           >
             {/* svg of a hamburger menu */}
@@ -55,7 +55,7 @@ const Navbar = () => {
           </button>
         </div>
         {isMobileMenuOpen && (
-          <ul className="lg:hidden bg-white text-slate-500 px-4 py-2 my-4 space-y-2 animate-fade-down animate-once rounded-md"
+          <ul className="lg:hidden bg-white text-[#3f4042] px-4 py-2 my-4 space-y-2 animate-fade-down animate-once rounded-md"
 
 
           >
