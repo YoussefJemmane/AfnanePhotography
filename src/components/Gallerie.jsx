@@ -1,40 +1,43 @@
-import React from 'react'
-
+import React, { useState } from 'react'
 import photoss from '../data/photos'
+
+
 console.log(photoss)
 const Gallerie = () => {
+
     const [photos, setPhotos] = React.useState([])
     const [selectedSeance, setSelectedSeance] = React.useState('')
     const images = [
         {
             photo: photoss[0],
             id: 1,
-            title: "photo1"
+            title: "photo1",
+            
         },
         {
             photo: photoss[1],
             id: 2,
-            title: "photo2"
+            title: "photo2",
         },
         {
             photo: photoss[2],
             id: 3,
-            title: "photo3"
+            title: "photo3",
         },
         {
             photo: photoss[3],
             id: 4,
-            title: "photo4"
+            title: "photo4",
         },
         {
             photo: photoss[4],
             id: 5,
-            title: "photo5"
+            title: "photo5",
         },
         {
             photo: photoss[5],
             id: 6,
-            title: "photo6"
+            title: "photo6",
         }
     ]
     const gallerie = [
@@ -44,17 +47,18 @@ const Gallerie = () => {
                 {
                     photo: photoss[0],
                     id: 1,
-                    title: "photo1"
+                    title: "photo1",
                 },
                 {
                     photo: photoss[1],
                     id: 2,
-                    title: "photo2"
+                    title: "photo2",
+
                 },
                 {
                     photo: photoss[2],
                     id: 3,
-                    title: "photo3"
+                    title: "photo3",
                 }
             ]
         },
@@ -64,17 +68,17 @@ const Gallerie = () => {
                 {
                     photo: photoss[3],
                     id: 4,
-                    title: "photo4"
+                    title: "photo4",
                 },
                 {
                     photo: photoss[4],
                     id: 5,
-                    title: "photo5"
+                    title: "photo5",
                 },
                 {
-                    photo:photoss[5],
+                    photo: photoss[5],
                     id: 6,
-                    title: "photo6"
+                    title: "photo6",
                 }
             ]
         },
@@ -111,6 +115,7 @@ const Gallerie = () => {
     ]
 
     const handleSeanceChange = (e) => {
+
         const selectedSeance = e.target.value;
         setSelectedSeance(selectedSeance);
         const selectedGallerie = gallerie.find((gallerie) => gallerie.text === selectedSeance);
@@ -143,8 +148,16 @@ const Gallerie = () => {
                         {photos.length > 0 ? (
                             photos.map((photo) => (
                                 <div key={photo.id} className="  rounded-md">
-                                    <img src={photo.photo} alt={photo.title} className="w-full h-auto rounded-md" loading="lazy" />
-
+                                    
+                                        <img
+                                            src={photo.photo}
+                                            alt={photo.title}
+                                            className="w-full h-auto rounded-md"
+                                            loading="lazy"
+                                            decoding='async'
+                                            fetchpriotity='high'
+                                        />
+                                  
                                 </div>
                             ))
                         ) : (
