@@ -97,9 +97,27 @@ const Navbar = () => {
               </a>
 
             </li>
-            <li>Galerie</li>
-            <li>Les tarifs</li>
-            <li>Contact</li>
+            <li>
+              <a href="#gallerie">
+                Galerie
+
+              </a>
+            </li>
+            <li>
+              <a href="#tarifs">
+                Les tarifs
+              </a>
+            </li>
+
+            <li>
+
+              <a href="#contact">
+                Contact
+
+              </a>
+
+            </li>
+
           </ul>
         )
         }
