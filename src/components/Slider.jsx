@@ -76,6 +76,7 @@ export default function Slider() {
                     loading="lazy"
                     decoding='async'
                     fetchpriotity='high'
+                    alt={slide.url}
                   />
                 </li>
               ))

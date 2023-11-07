@@ -1,5 +1,6 @@
 import React from 'react'
 const Footer = () => {
+    
     return (
         <div>
             <div className=' w-full m-auto p-[10px]  group animate-fade-right animate-once 
@@ -10,6 +11,7 @@ const Footer = () => {
                     </h2>
                 </div>
             </div>
+
         </div>
     )
 }

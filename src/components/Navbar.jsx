@@ -37,14 +37,21 @@ const Navbar = () => {
 
             </li>
             <li>
-              <a href="tarifs">
+              <a href="#tarifs">
                 Les tarifs
 
 
               </a>
 
             </li>
-            <li>Contact</li>
+
+            <li>
+
+              <a href="#contact">
+                Contact
+
+              </a>
+            </li>
           </ul>
           <button
             className="lg:hidden text-[#3f4042]"
