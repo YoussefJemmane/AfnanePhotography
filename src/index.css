@@ -12,8 +12,8 @@
     font-style: normal;
   }
 @font-face {
-    font-family: 'ModernSans-Light';
-    src: url('./fonts/ModernSans-Light.otf');
+    font-family: 'Champagne & Limousines';
+    src: url('./fonts/Champagne & Limousines.ttf');
     font-style: normal;
   }
 
@@ -25,6 +25,6 @@
   }
 
   * {
-    font-family: "ModernSans-Light";
+    font-family: "Champagne & Limousines";
     font-weight: 400;
   }
