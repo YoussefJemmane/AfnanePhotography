@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "FuturaPTBook";
+  src: url(../fonts/FuturaPTBook.ttf);
+}
+
+@font-face {
+  font-family: "TrajanProRegular";
+  src: url(../fonts/TrajanProRegular.ttf);
+}
+
+
+* {
+  font-family: "FuturaPTBook";
+}
+
+ul > li {
+  font-family: "TrajanProRegular";
+}
