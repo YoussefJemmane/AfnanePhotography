@@ -1,14 +1,26 @@
 "use client"
-import { useMediaQuery } from '@uidotdev/usehooks'
+
 import React from 'react'
 import { BsTelephoneFill } from 'react-icons/bs'
 import { FiPhone } from 'react-icons/fi'
 import { MdEmail, MdOutlineEmail } from 'react-icons/md'
 import Link from 'next/link';
 const Contact = () => {
+    const [isSmallDevice, setIsSmallDevice] = React.useState(false);
 
-    const isSmallDevice = useMediaQuery("only screen and (max-width : 768px)");
-
+    React.useEffect(() => {
+        const handleResize = () => {
+            setIsSmallDevice(window.matchMedia("only screen and (max-width : 768px)").matches);
+        };
+ 
+        window.addEventListener('resize', handleResize);
+        handleResize();
+ 
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+ 
     const renderIcon = () => {
         if (isSmallDevice) {
             return (

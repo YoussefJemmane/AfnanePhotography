@@ -1,15 +1,27 @@
 "use client"
 import React, { useState } from 'react';
 import Contact from './Contact';
-import { useMediaQuery } from '@uidotdev/usehooks';
+
 import Image from 'next/image';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import logo from '../../public/logonoir.png'
 import { AiOutlineClose } from 'react-icons/ai';
 
 const Navbar = () => {
-    const isSmallDevice = useMediaQuery('only screen and (max-width: 850px)');
+    const [isSmallDevice, setIsSmallDevice] = React.useState(false);
 
+    React.useEffect(() => {
+        const handleResize = () => {
+            setIsSmallDevice(window.matchMedia("only screen and (max-width : 850px)").matches);
+        };
+ 
+        window.addEventListener('resize', handleResize);
+        handleResize();
+ 
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
     const [isOpened, setIsOpened] = useState(false);
     const [showDetails, setShowDetails] = useState(false);
 
