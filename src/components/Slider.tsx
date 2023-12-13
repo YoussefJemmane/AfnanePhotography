@@ -16,7 +16,7 @@ const Slider = () => {
       <Splide aria-label="My Favorite Images">
         {images.map((img, index) => (
           <SplideSlide key={index}>
-            <Image src={img} alt={`Image ${index + 1}`} className='h-[745px] object-scale-down'/>
+            <Image src={img} alt={`Image ${index + 1}`} className='h-[745px] object-scale-down ' loading="lazy"/>
           </SplideSlide>
         ))}
       </Splide>
