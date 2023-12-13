@@ -23,10 +23,10 @@ const Navbar = () => {
     };
 
     return (
-        <div>
+        <div className='sticky top-0 z-50 bg-white shadow-lg'>
             <Contact />
             {isSmallDevice ? (
-                <div className='flex justify-between items-center px-4 py-2'>
+                <div className='flex justify-between items-center px-4 py-2 '>
                     <div>
                         <Image src={logo} alt='Logo' width={120} height={40} />
                     </div>
@@ -46,7 +46,7 @@ const Navbar = () => {
                             <ul className='flex flex-col items-center mt-16 space-y-4'>
 
                                 <li>Home</li>
-                                <li>About Us</li>
+                                <li>Mon Style</li>
                                 <li>
                                     <button onClick={toggleDetails}>
 
@@ -88,16 +88,16 @@ const Navbar = () => {
                     <nav className='flex items-center'>
                         <ul className='flex justify-center items-center space-x-6'>
                             <li>Home</li>
-                            <li>About Us</li>
-                            <li>
-                                <button onMouseEnter={toggleDetails} >
+                            <li>Mon Style</li>
+                            <li className='dropdown-menu'>
+                                <button onMouseEnter={() => setShowDetails(true)}  onMouseLeave={() => setShowDetails(false)}>
                                     Services
 
                                 </button>
 
                             {
                                 showDetails && (
-                                    <div className='border mt-2 absolute bg-white z-50'>
+                                    <div className='border mt-2 absolute bg-white z-50' >
                                         <ul className='flex flex-col items-center space-y-4 p-[20px]'>
                                             <li>Newborns</li>
                                             <li>Maternity</li>
