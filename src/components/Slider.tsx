@@ -12,7 +12,7 @@ import 'splide-nextjs/splide/dist/css/themes/splide-default.min.css';
 const Slider = () => {
   const images = [img1, img2, img3, img4]
   return (
-    <div className='h-[745px] bg-cover bg-center' style={{ backgroundImage: `url(${bannier.src})` }}>
+    <div className='h-[745px] bg-cover bg-center' style={{ backgroundImage: `url(${bannier.src})` }}  id='home'>
       <Splide aria-label="My Favorite Images">
         {images.map((img, index) => (
           <SplideSlide key={index}>

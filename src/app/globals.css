@@ -17,10 +17,14 @@
   font-family: "FuturaPTBook";
 }
 
-ul > li {
+ul > li > a {
   font-family: "TrajanProRegular";
 }
 
-.monstyle{
+.monstyle {
+  font-family: "TrajanProRegular";
+}
+
+.services {
   font-family: "TrajanProRegular";
 }

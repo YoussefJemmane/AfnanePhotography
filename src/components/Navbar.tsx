@@ -1,7 +1,8 @@
 "use client"
+
 import React, { useState } from 'react';
 import Contact from './Contact';
-
+import Link from 'next/link';
 import Image from 'next/image';
 import { RxHamburgerMenu } from 'react-icons/rx';
 import logo from '../../public/logonoir.png'
@@ -14,10 +15,10 @@ const Navbar = () => {
         const handleResize = () => {
             setIsSmallDevice(window.matchMedia("only screen and (max-width : 850px)").matches);
         };
- 
+
         window.addEventListener('resize', handleResize);
         handleResize();
- 
+
         return () => {
             window.removeEventListener('resize', handleResize);
         };
@@ -27,11 +28,15 @@ const Navbar = () => {
 
     const toggleDetails = () => {
         setShowDetails(!showDetails);
-        console.log(showDetails)
     };
 
     const toggle = () => {
         setIsOpened(!isOpened);
+    };
+
+    const handleLinkClick = () => {
+        setIsOpened(false);
+        setShowDetails(false);
     };
 
     return (
@@ -51,27 +56,41 @@ const Navbar = () => {
                         <nav className='fixed top-0 left-0 h-screen w-full bg-white z-50'>
                             <div className=' float-right px-[30px] pt-[30px]'>
                                 <button onClick={toggle}>
-
                                     <AiOutlineClose size={24} />
                                 </button>
                             </div>
                             <ul className='flex flex-col items-center mt-16 space-y-4'>
-
-                                <li>Home</li>
-                                <li>Mon Style</li>
                                 <li>
-                                    <button onClick={toggleDetails}>
-
+                                    <Link href="/#home" onClick={handleLinkClick}>
+                                        Home
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link onClick={handleLinkClick} href="/#monstyle">
+                                        Mon Style
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/#service" onClick={toggleDetails}>
                                         Services
-
-                                    </button>
-
+                                    </Link>
 
                                 </li>
-
-                                <li>Pricing</li>
-                                <li>Gallery</li>
-                                <li>Contact Us</li>
+                                <li>
+                                    <Link onClick={handleLinkClick} href="/#pricing">
+                                        Pricing
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link onClick={handleLinkClick} href="/#gallery">
+                                        Gallery
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link onClick={handleLinkClick} href="/#contactus">
+                                        Contact Us
+                                    </Link>
+                                </li>
                             </ul>
                         </nav>
                     )}
@@ -79,18 +98,35 @@ const Navbar = () => {
                         <nav className='fixed top-0 left-0 h-screen w-full bg-white z-50'>
                             <div className=' float-right px-[30px] pt-[30px]'>
                                 <button onClick={toggleDetails}>
-
                                     <AiOutlineClose size={24} />
                                 </button>
                             </div>
                             <ul className='flex flex-col items-center mt-16 space-y-4'>
-
-                                <li>Newborns</li>
-                                <li>Maternity</li>
-                                <li>Family</li>
-                                <li>Older Babies</li>
-                                <li>Cake Smashes</li>
-
+                                <li>
+                                    <Link onClick={handleLinkClick} href="/#newborns">
+                                        Newborns
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link onClick={handleLinkClick} href="/#maternity">
+                                        Maternity
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link onClick={handleLinkClick} href="/#family">
+                                        Family
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link onClick={handleLinkClick} href="/#olderbabies">
+                                        Older Babies
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link onClick={handleLinkClick} href="/#cakesmashes">
+                                        Cake Smashes
+                                    </Link>
+                                </li>
                             </ul>
                         </nav>
                     )}
@@ -99,34 +135,72 @@ const Navbar = () => {
                 <div className='h-[123px] flex justify-center'>
                     <nav className='flex items-center'>
                         <ul className='flex justify-center items-center space-x-6'>
-                            <li>Home</li>
-                            <li>Mon Style</li>
+                            <li>
+                                <Link href="/#home">
+                                    Home
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/#monstyle">
+                                    Mon Style
+                                </Link>
+                            </li>
                             <li className='dropdown-menu'>
-                                <button onMouseEnter={() => setShowDetails(true)}  onMouseLeave={() => setShowDetails(false)}>
+                                <Link href="/#service" onMouseEnter={() => setShowDetails(true)} onMouseLeave={() => setShowDetails(false)}>
                                     Services
-
-                                </button>
-
-                            {
-                                showDetails && (
-                                    <div className='border mt-2 absolute bg-white z-50' >
-                                        <ul className='flex flex-col items-center space-y-4 p-[20px]'>
-                                            <li>Newborns</li>
-                                            <li>Maternity</li>
-                                            <li>Family</li>
-                                            <li>Older Babies</li>
-                                            <li>Cake Smashes</li>
-                                        </ul>
-                                    </div>
-                                )
-                            }
+                                </Link>
+                                {
+                                    showDetails && (
+                                        <div className='border mt-2 absolute bg-white z-50' >
+                                            <ul className='flex flex-col items-center space-y-4 p-[20px]'>
+                                                <li>
+                                                    <Link href="/#newborns">
+                                                        Newborns
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="/#maternity">
+                                                        Maternity
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="/#family">
+                                                        Family
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="/#olderbabies">
+                                                        Older Babies
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="/#cakesmashes">
+                                                        Cake Smashes
+                                                    </Link>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    )
+                                }
                             </li>
                             <li>
                                 <Image src={logo} alt='Logo' width={200} height={60} />
                             </li>
-                            <li>Pricing</li>
-                            <li>Gallery</li>
-                            <li>Contact Us</li>
+                            <li>
+                                <Link href="/#pricing">
+                                    Pricing
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/#gallery">
+                                    Gallery
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/#contactus">
+                                    Contact Us
+                                </Link>
+                            </li>
                         </ul>
                     </nav>
                 </div>
