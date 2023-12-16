@@ -19,7 +19,7 @@ const NouveauNe = () => {
   const [activeSlide, setActiveSlide] = useState(0);
   const splideRef = useRef();
 
-  const handleImageClick = (index) => {
+  const handleImageClick = (index:any) => {
     if (splideRef.current) {
       splideRef.current.splide.go(index);
     }
