@@ -34,6 +34,8 @@ const services = [
   {
     name : "Mode",
     image : img5,
+    position: 'center top'
+
   }
 ];
 
@@ -42,7 +44,7 @@ export const Services = () => {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="services">
       <div className="pt-24">
         <h1 className="services text-3xl text-center w-full">Services</h1>
-        <div className='flex justify-center py-10 text-lg'>
+        <div className='flex justify-center py-5   text-lg'>
           <p>What Services do you like to choose?</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
