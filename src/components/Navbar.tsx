@@ -132,25 +132,27 @@ const Navbar = () => {
         </div>
       ) : (
         <div className="h-[123px] flex justify-center">
-          <nav className="flex items-center">
+          <nav className="flex items-center" onMouseLeave={() => setShowDetails(false)} >
             <ul className="flex justify-center items-center space-x-6">
-              <li></li>
+              
               <li>
-                <Link href="/#monstyle">Mon Style</Link>
+                <Link href="/#monstyle" onMouseEnter={() => setShowDetails(false)} >
+                  
+                  Mon Style</Link>
               </li>
               <li className="dropdown-menu">
                 <Link
                   href="/#services"
                   onMouseEnter={() => setShowDetails(true)}
-                  onMouseLeave={() => setShowDetails(false)}
+                  
                 >
                   Services
                 </Link>
                 {showDetails && (
-                  <div className="border mt-2 absolute bg-white z-50">
+                  <div className="border mt-2 absolute bg-white z-50" onMouseLeave={() => setShowDetails(false)} >
                     <ul className="flex flex-col items-center space-y-4 p-[20px]">
                       <li>
-                        <Link href="service/nouveaune">Newborns</Link>
+                        <Link href="/service/nouveaune">Newborns</Link>
                       </li>
                       <li>
                         <Link href="/#maternity">Maternity</Link>
@@ -169,7 +171,7 @@ const Navbar = () => {
                 )}
               </li>
               <li>
-                <Link href="/#home">
+                <Link href="/#home" onMouseEnter={() => setShowDetails(false)} >
                   <Image src={logo} alt="Logo" width={200} height={60} />
                 </Link>
               </li>
