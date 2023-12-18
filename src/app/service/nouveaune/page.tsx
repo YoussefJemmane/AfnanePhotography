@@ -14,12 +14,20 @@ import "splide-nextjs/splide/dist/css/themes/splide-default.min.css";
 
 import { useState, useRef, useEffect } from "react";
 
+interface SplideRef {
+  splide: {
+    on: (event: string, callback: () => void) => void;
+    go: (index: number) => void;
+    index: number;
+  };
+}
+
 const NouveauNe = () => {
   const images = [img1, img2, img3, img4];
   const [activeSlide, setActiveSlide] = useState(0);
-  const splideRef = useRef();
+  const splideRef = useRef<SplideRef | null>(null);
 
-  const handleImageClick = (index:any) => {
+  const handleImageClick = (index: any) => {
     if (splideRef.current) {
       splideRef.current.splide.go(index);
     }
@@ -28,7 +36,9 @@ const NouveauNe = () => {
   useEffect(() => {
     if (splideRef.current) {
       splideRef.current.splide.on('moved', () => {
-        setActiveSlide(splideRef.current.splide.index);
+        if (splideRef.current) {
+          setActiveSlide(splideRef.current.splide.index);
+        }
       });
     }
   }, []);
