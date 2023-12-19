@@ -7,6 +7,7 @@ import React from "react";
 import Header from "@/components/service/nouveaune/Header";
 import Slider from "@/components/service/nouveaune/Slider";
 import Tarifs from "@/components/service/nouveaune/Tarifs";
+import{ Footer} from "@/components/Footer";
 
 const NouveauNe = () => {
   
@@ -24,6 +25,7 @@ const NouveauNe = () => {
           <Tarifs />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
