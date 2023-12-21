@@ -15,6 +15,7 @@
     "react-dom": "^18",
     "react-icons": "^4.11.0",
     "react-media": "^1.10.0",
+    "sharp": "^0.33.1",
     "splide-nextjs": "^2.4.23",
     "usehooks-ts": "^2.9.1"
   },

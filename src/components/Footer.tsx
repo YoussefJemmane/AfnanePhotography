@@ -11,7 +11,7 @@ export const Footer = () => {
         <div className="md:pr-4">
           <Image src={logo} alt="Logo" width={180} height={80} />
           <p className="text-xl pt-5 md:pt-10">
-            Parlons un peu ! Si vous souhaitez en savoir plus, poser des questions ou bien réserver une séance, n'hésitez pas à me contacter. Yousra elomari
+            Parlons un peu ! Si vous souhaitez en savoir plus, poser des questions ou bien réserver une séance, n&apos;hésitez pas à me contacter. Yousra elomari
           </p>
           <div className="flex gap-3 pt-5 md:pt-10">
             <Link href="https://www.facebook.com/afnanephotography">
