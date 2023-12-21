@@ -5,7 +5,7 @@ import Contact from "./Contact";
 import Link from "next/link";
 import Image from "next/image";
 import { RxHamburgerMenu } from "react-icons/rx";
-import logo from "../../public/logonoir.png";
+import logo from "../../public/logo-noir.webp";
 import { AiOutlineClose } from "react-icons/ai";
 
 const Navbar = () => {
@@ -79,7 +79,7 @@ const Navbar = () => {
                     Services
                   </Link>
                 </li>
-                
+
                 <li>
                   <Link onClick={handleLinkClick} href="/#gallery">
                     Gallery
@@ -134,17 +134,17 @@ const Navbar = () => {
         <div className="h-[123px] flex justify-center">
           <nav className="flex items-center" onMouseLeave={() => setShowDetails(false)} >
             <ul className="flex justify-center items-center space-x-6">
-              
+
               <li>
                 <Link href="/#monstyle" onMouseEnter={() => setShowDetails(false)} >
-                  
+
                   Mon Style</Link>
               </li>
               <li className="dropdown-menu">
                 <Link
                   href="/#services"
                   onMouseEnter={() => setShowDetails(true)}
-                  
+
                 >
                   Services
                 </Link>
@@ -175,7 +175,7 @@ const Navbar = () => {
                   <Image src={logo} alt="Logo" width={200} height={60} />
                 </Link>
               </li>
-             
+
               <li>
                 <Link href="/#gallery">Gallery</Link>
               </li>
