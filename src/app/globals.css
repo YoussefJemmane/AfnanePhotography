@@ -5,11 +5,13 @@
 @font-face {
   font-family: "FuturaPTBook";
   src: url(../fonts/FuturaPTBook.ttf);
+  font-display: swap;
 }
 
 @font-face {
   font-family: "TrajanProRegular";
   src: url(../fonts/TrajanProRegular.ttf);
+  font-display: swap;
 }
 
 

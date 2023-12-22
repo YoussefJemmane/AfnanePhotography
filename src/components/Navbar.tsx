@@ -65,7 +65,7 @@ const Navbar = () => {
               </div>
               <ul className="flex flex-col items-center mt-16 space-y-4">
                 <li>
-                  <Link href="/#home" onClick={handleLinkClick}>
+                  <Link href="/" onClick={handleLinkClick}>
                     Home
                   </Link>
                 </li>
@@ -171,7 +171,7 @@ const Navbar = () => {
                 )}
               </li>
               <li>
-                <Link href="/#home" onMouseEnter={() => setShowDetails(false)} >
+                <Link href="/" onMouseEnter={() => setShowDetails(false)} >
                   <Image src={logo} alt="Logo" width={200} height={60} />
                 </Link>
               </li>

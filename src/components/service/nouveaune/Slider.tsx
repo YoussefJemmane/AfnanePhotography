@@ -53,6 +53,7 @@ const Slider = () => {
                   alt={`Image ${index + 1}`}
                   className="h-[745px] object-scale-down "
                   loading="lazy"
+                  sizes={`(max-width: 600px) 480px, 800px`}
                 />
               </SplideSlide>
             ))}
@@ -68,6 +69,7 @@ const Slider = () => {
                   layout="fixed"
                   className={`object-scale-down h-[120px] ${index === activeSlide ? '' : 'grayscale'}`}
                   loading="lazy"
+                  sizes={`(max-width: 600px) 480px, 800px`}
                 />
               </div>
             ))}

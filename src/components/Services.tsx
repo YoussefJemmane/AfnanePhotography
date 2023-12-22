@@ -66,6 +66,7 @@ const Services = () => {
                   quality={75} // Adjust the quality as needed
                   objectFit="cover"
                   className="border"
+                  sizes={`(max-width: 600px) 480px, 800px`}
                 />
                 <div className="flex justify-center items-center absolute inset-0 bg-black bg-opacity-0 text-white transition-all duration-500 ease-in-out group-hover:bg-opacity-50">
                   <h1 className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-xl">{service.name}</h1>

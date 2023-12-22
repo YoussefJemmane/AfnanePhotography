@@ -12,7 +12,7 @@ const Slider = () => {
     <div className='h-[745px] bg-cover bg-center' style={{ backgroundImage: `url(${bannier.src})` }} id='home'>
 
       <div className='flex justify-center '>
-        <Image src={img2} alt={`Image`} className='h-[745px] object-scale-down ' loading="lazy" />
+        <Image src={img2} alt={`Image`} className='h-[745px] object-scale-down ' loading="lazy" sizes={`(max-width: 600px) 480px, 800px`}/>
 
       </div>
 

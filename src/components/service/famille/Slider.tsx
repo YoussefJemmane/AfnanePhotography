@@ -65,8 +65,11 @@ const Slider = () => {
                 <Image
                   src={img}
                   alt={`Image ${index + 1}`}
-                  layout="fixed"
-                  className={`object-scale-down h-[120px] ${index === activeSlide ? '' : 'grayscale'}`}
+                  width={500} // replace with your actual image width
+                  height={500} // replace with your actual image height
+                  sizes="(max-width: 600px) 480px, 800px"
+                  layout="fill"
+                  className="h-[745px] object-scale-down "
                   loading="lazy"
                 />
               </div>

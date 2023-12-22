@@ -19,13 +19,13 @@ export const Footer = () => {
                         Parlons un peu ! Si vous souhaitez en savoir plus, poser des questions ou bien réserver une séance, n&apos;hésitez pas à me contacter. Yousra elomari
                     </p>
                     <div className="flex gap-3 pt-[20px] md:pt-[20px]">
-                        <Link href="https://www.facebook.com/afnanephotography">
+                        <Link href="https://www.facebook.com/afnanephotography" aria-label="Facebook">
                             <FaFacebookF className="text-lg text-[#4D4D4D]" />
                         </Link>
-                        <Link href="https://www.instagram.com/afnane.photography/?igsh=MWRsa3hodTJwdmJtOA%3D%3D">
+                        <Link href="https://www.instagram.com/afnane.photography/?igsh=MWRsa3hodTJwdmJtOA%3D%3D" aria-label="Instagram">
                             <FaInstagram className="text-xl text-[#4D4D4D]" />
                         </Link>
-                        <Link href="https://www.linkedin.com/company/afnanphotography/">
+                        <Link href="https://www.linkedin.com/company/afnanphotography/" aria-label="Linkedin">
                             <FaLinkedin className="text-xl text-[#4D4D4D]" />
                         </Link>
                     </div>
