@@ -12,7 +12,7 @@ const Slider = () => {
       <Image
         src={bannier}
         alt="banniere"
-        className='bg-cover bg-center'
+        className='image bg-cover bg-center'
         loading='lazy'
       />
     </div>

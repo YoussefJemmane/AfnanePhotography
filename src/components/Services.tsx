@@ -65,7 +65,7 @@ const Services = () => {
                   layout="responsive" // Add this line
                   quality={75} // Adjust the quality as needed
                   objectFit="cover"
-                  className="border"
+                  className="border image"
                   sizes={`(max-width: 600px) 480px, 800px`}
                 />
                 <div className="flex justify-center items-center absolute inset-0 bg-black bg-opacity-0 text-white transition-all duration-500 ease-in-out group-hover:bg-opacity-50">

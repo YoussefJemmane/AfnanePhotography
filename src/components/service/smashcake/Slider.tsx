@@ -51,7 +51,7 @@ const Slider = () => {
                 <Image
                   src={img}
                   alt={`Image ${index + 1}`}
-                  className="h-[745px] object-scale-down "
+                  className="h-[745px] image object-scale-down "
                   loading="lazy"
                   sizes={`(max-width: 600px) 480px, 800px`}
                 />
@@ -67,7 +67,7 @@ const Slider = () => {
                   src={img}
                   alt={`Image ${index + 1}`}
                   layout="fixed"
-                  className={`object-scale-down h-[120px] ${index === activeSlide ? '' : 'grayscale'}`}
+                  className={`object-scale-down image h-[120px] ${index === activeSlide ? '' : 'grayscale'}`}
                   loading="lazy"
                   sizes={`(max-width: 600px) 480px, 800px`}
                 />

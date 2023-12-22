@@ -48,7 +48,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center px-4 py-2 ">
           <div>
             <Link href="/#home" onClick={handleLinkClick}>
-              <Image src={logo} alt="Logo" width={120} height={40} />
+              <Image src={logo} alt="Logo" width={120} height={40} className="image" />
             </Link>
           </div>
           <div className="bg-[#4D4D4D] text-[#FFFFFF] w-10 h-10 flex items-center justify-center">
@@ -102,28 +102,38 @@ const Navbar = () => {
               </div>
               <ul className="flex flex-col items-center mt-16 space-y-4">
                 <li>
-                  <Link onClick={handleLinkClick} href="service/nouveaune">
+                  <Link onClick={handleLinkClick} href="/service/nouveaune">
                     Newborns
                   </Link>
                 </li>
                 <li>
-                  <Link onClick={handleLinkClick} href="/#maternity">
+                  <Link onClick={handleLinkClick} href="/service/maternity">
                     Maternity
                   </Link>
                 </li>
                 <li>
-                  <Link onClick={handleLinkClick} href="/#family">
+                  <Link onClick={handleLinkClick} href="/service/family">
                     Family
                   </Link>
                 </li>
                 <li>
-                  <Link onClick={handleLinkClick} href="/#olderbabies">
+                  <Link onClick={handleLinkClick} href="/service/olderbabies">
                     Older Babies
                   </Link>
                 </li>
                 <li>
-                  <Link onClick={handleLinkClick} href="/#cakesmashes">
+                  <Link onClick={handleLinkClick} href="/service/cakesmashes">
                     Cake Smashes
+                  </Link>
+                </li>
+                <li>
+                  <Link onClick={handleLinkClick} href="/service/mode">
+                    Mode
+                  </Link>
+                </li>
+                <li>
+                  <Link onClick={handleLinkClick} href="/service/proffesional">
+                    Professional
                   </Link>
                 </li>
               </ul>
@@ -152,19 +162,29 @@ const Navbar = () => {
                   <div className="border mt-2 absolute bg-white z-50" onMouseLeave={() => setShowDetails(false)} >
                     <ul className="flex flex-col items-center space-y-4 p-[20px]">
                       <li>
-                        <Link href="/service/nouveaune">Newborns</Link>
+                        <Link href="/service/nouveaune">Nouveau né</Link>
                       </li>
                       <li>
-                        <Link href="/#maternity">Maternity</Link>
+                        <Link href="/service/grossesse">Grossesse</Link>
                       </li>
                       <li>
-                        <Link href="/#family">Family</Link>
+                        <Link href="/service/famille">Famille</Link>
                       </li>
                       <li>
-                        <Link href="/#olderbabies">Older Babies</Link>
+                        <Link href="/service/bebe">Bébé</Link>
                       </li>
                       <li>
-                        <Link href="/#cakesmashes">Cake Smashes</Link>
+                        <Link href="/service/smashcake">Smash Cake</Link>
+                      </li>
+                      <li>
+                        <Link href="/service/mode">
+                          Mode
+                        </Link>
+                      </li>
+                      <li>
+                        <Link href="/service/proffesional">
+                          Professional
+                        </Link>
                       </li>
                     </ul>
                   </div>
@@ -172,7 +192,7 @@ const Navbar = () => {
               </li>
               <li>
                 <Link href="/" onMouseEnter={() => setShowDetails(false)} >
-                  <Image src={logo} alt="Logo" width={200} height={60} />
+                  <Image src={logo} alt="Logo" width={200} height={60} className="image" />
                 </Link>
               </li>
 

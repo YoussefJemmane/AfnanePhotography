@@ -1,7 +1,8 @@
 import React from 'react'
 
 import Image from "next/image";
-import img1 from "../../../../public/famille/PhotosAccueil-003.webp";
+import img1 from "../../../../public/imagenotfound.webp";
+
 
 
 import { Splide, SplideSlide } from "splide-nextjs/react-splide";
@@ -61,7 +62,7 @@ const Slider = () => {
           <div className="grid grid-cols-3 gap-x-1">
             {images.map((img, index) => (
               <div key={index} onClick={() => handleImageClick(index)} className="">
-                 <Image
+                <Image
                   src={img}
                   alt={`Image ${index + 1}`}
                   layout="fixed"

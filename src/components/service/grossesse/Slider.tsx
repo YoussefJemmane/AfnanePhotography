@@ -1,9 +1,8 @@
 import React from 'react'
 
 import Image from "next/image";
-import img1 from "../../../../public/bebe/MG_1107.webp";
-import img2 from "../../../../public/bebe/MG_1180.webp";
-import img3 from "../../../../public/bebe/MG_1205.webp";
+import img1 from "../../../../public/imagenotfound.webp";
+
 
 
 import { Splide, SplideSlide } from "splide-nextjs/react-splide";
@@ -20,7 +19,7 @@ interface SplideRef {
   };
 }
 const Slider = () => {
-  const images = [img1, img2, img3];
+  const images = [img1];
   const [activeSlide, setActiveSlide] = useState(0);
   const splideRef = useRef<SplideRef | null>(null);
 
@@ -51,7 +50,7 @@ const Slider = () => {
                 <Image
                   src={img}
                   alt={`Image ${index + 1}`}
-                  className="h-[745px] object-scale-down "
+                  className="h-[745px] image object-scale-down "
                   loading="lazy"
                   sizes={`(max-width: 600px) 480px, 800px`}
                 />
@@ -67,7 +66,7 @@ const Slider = () => {
                   src={img}
                   alt={`Image ${index + 1}`}
                   layout="fixed"
-                  className={`object-scale-down h-[120px] ${index === activeSlide ? '' : 'grayscale'}`}
+                  className={`object-scale-down image h-[120px] ${index === activeSlide ? '' : 'grayscale'}`}
                   loading="lazy"
                   sizes={`(max-width: 600px) 480px, 800px`}
                 />

@@ -9,7 +9,7 @@ export const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 lg:pt-20 text-[#4D4D4D]" id="footer">
             <div className="pb-10 lg:pb-20 grid grid-cols-1 md:grid-cols-2">
                 <div className="md:pr-4">
-                    <Image src={logo} alt="Logo" width={180} height={80} />
+                    <Image src={logo} alt="Logo" width={180} height={80} className='image'/>
                     <div className='pt-[15px]'>
 
                         <h1 className="text-xl font-bold">Contact</h1>
