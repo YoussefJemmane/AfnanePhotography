@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import img1 from '../../public/famille/PhotosAccueil-003.webp'
 
-export const Style = () => {
+const Style = () => {
   return (
     <div className='max-w-768 mx-auto' id='monstyle'>
       <div className='flex flex-col b1:flex-row b1:flex-wrap'>
@@ -19,3 +19,5 @@ export const Style = () => {
     </div>
   )
 }
+
+export default Style

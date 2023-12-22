@@ -11,41 +11,41 @@ const services = [
   {
     name: "Nouveau Né",
     image: img1,
-    href : '/service/nouveaune',
+    href: '/service/nouveaune',
   },
   {
     name: "Bébé",
     image: img2,
-    href : '/service/bebe',
+    href: '/service/bebe',
   },
   {
     name: "Smash Cake",
     image: img3,
-    href : '/service/smashcake',
+    href: '/service/smashcake',
   },
   {
     name: "Grossesse",
     image: img4,
-    href : '/service/grossesse',
+    href: '/service/grossesse',
   },
   {
-    name : "Famille",
-    image : img5,
-    href : '/service/famille',
+    name: "Famille",
+    image: img5,
+    href: '/service/famille',
   },
   {
-    name : "Professional",
-    image : img6,
-    href : '/service/professional',
+    name: "Professional",
+    image: img6,
+    href: '/service/professional',
   },
   {
-    name : "Mode",
-    image : img7,
-    href : '/service/mode',
+    name: "Mode",
+    image: img7,
+    href: '/service/mode',
   }
 ];
 
-export const Services = () => {
+const Services = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" id="services">
       <div className="pt-24">
@@ -56,12 +56,14 @@ export const Services = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((service, index) => (
             <Link href={service.href ? service.href : '/'} key={index}>
-              <div className="relative group aspect-ratio-16/9"> 
+              <div className="relative group aspect-ratio-16/9">
                 <Image
                   src={service.image}
                   alt={service.name}
-                  width={400}  
-                  height={225} 
+                  width={400}
+                  height={225}
+                  layout="responsive" // Add this line
+                  quality={75} // Adjust the quality as needed
                   objectFit="cover"
                   className="border"
                 />
@@ -76,3 +78,5 @@ export const Services = () => {
     </div>
   );
 };
+
+export default Services;
