@@ -1,9 +1,9 @@
 import React from 'react'
 
 import Image from "next/image";
-import img1 from "../../../../public/IMG20231005165037.jpg";
-import img2 from "../../../../public/imp2.jpg";
-import img3 from "../../../../public/im1.jpg";
+import img1 from "../../../../public/nouveaune/IMG20231005165037.webp";
+import img2 from "../../../../public/nouveaune/imp-2.webp";
+import img3 from "../../../../public/nouveaune/im-1.webp";
 
 
 import { Splide, SplideSlide } from "splide-nextjs/react-splide";

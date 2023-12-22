@@ -1,10 +1,11 @@
 import Image from 'next/image';
-import img1 from "../../public/IMG20231005165037.jpg";
-import img2 from '../../public/_MG_1107.jpg'
-import img3 from '../../public/_MG_1641.jpg'
-import imagenotfound from '../../public/imagenotfound.png'
-import img4 from '../../public/PhotosAccueil-003.jpg'
-import img5 from '../../public/T2 002 .jpg'
+import img1 from "../../public/poster/noueau né.webp";
+import img2 from '../../public/poster/bebe.webp'
+import img3 from '../../public/poster/smash cake.webp'
+import img4 from '../../public/poster/grossesse.webp'
+import img5 from '../../public/poster/famille.webp'
+import img6 from '../../public/poster/Professional .webp'
+import img7 from '../../public/poster/mode.webp'
 import Link from 'next/link';
 const services = [
   {
@@ -15,29 +16,32 @@ const services = [
   {
     name: "Bébé",
     image: img2,
-    position: 'center top'
+    href : '/service/bebe',
   },
   {
     name: "Smash Cake",
     image: img3,
+    href : '/service/smashcake',
   },
   {
     name: "Grossesse",
-    image: imagenotfound,
+    image: img4,
+    href : '/service/grossesse',
   },
   {
     name : "Famille",
-    image : img4,
+    image : img5,
+    href : '/service/famille',
   },
   {
     name : "Professional",
-    image : imagenotfound,
+    image : img6,
+    href : '/service/professional',
   },
   {
     name : "Mode",
-    image : img5,
-    position: 'center top'
-
+    image : img7,
+    href : '/service/mode',
   }
 ];
 
@@ -52,12 +56,19 @@ export const Services = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((service, index) => (
             <Link href={service.href ? service.href : '/'} key={index}>
-            <div  className="h-64 sm:h-96 relative group">
-              <Image src={service.image} alt={service.name} layout="fill" objectFit="cover" objectPosition={service.position ? service.position : 'center'} className='border'/>
-              <div className="flex justify-center items-center absolute inset-0 bg-black bg-opacity-0 text-white transition-all duration-500 ease-in-out group-hover:bg-opacity-50">
-                <h1 className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-xl">{service.name}</h1>
+              <div className="relative group aspect-ratio-16/9"> 
+                <Image
+                  src={service.image}
+                  alt={service.name}
+                  width={400}  
+                  height={225} 
+                  objectFit="cover"
+                  className="border"
+                />
+                <div className="flex justify-center items-center absolute inset-0 bg-black bg-opacity-0 text-white transition-all duration-500 ease-in-out group-hover:bg-opacity-50">
+                  <h1 className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-xl">{service.name}</h1>
+                </div>
               </div>
-            </div>
             </Link>
           ))}
         </div>
