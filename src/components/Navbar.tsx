@@ -75,7 +75,7 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/#services" onClick={toggleDetails}>
+                  <Link href="" onClick={toggleDetails}>
                     Services
                   </Link>
                 </li>
@@ -102,29 +102,19 @@ const Navbar = () => {
               </div>
               <ul className="flex flex-col items-center mt-16 space-y-4">
                 <li>
-                  <Link onClick={handleLinkClick} href="/service/nouveaune">
-                    Newborns
-                  </Link>
+                  <Link onClick={handleLinkClick} href="/service/nouveaune">Nouveau né</Link>
                 </li>
                 <li>
-                  <Link onClick={handleLinkClick} href="/service/maternity">
-                    Maternity
-                  </Link>
+                  <Link onClick={handleLinkClick} href="/service/grossesse">Grossesse</Link>
                 </li>
                 <li>
-                  <Link onClick={handleLinkClick} href="/service/family">
-                    Family
-                  </Link>
+                  <Link onClick={handleLinkClick} href="/service/famille">Famille</Link>
                 </li>
                 <li>
-                  <Link onClick={handleLinkClick} href="/service/olderbabies">
-                    Older Babies
-                  </Link>
+                  <Link onClick={handleLinkClick} href="/service/bebe">Bébé</Link>
                 </li>
                 <li>
-                  <Link onClick={handleLinkClick} href="/service/cakesmashes">
-                    Cake Smashes
-                  </Link>
+                  <Link onClick={handleLinkClick} href="/service/smashcake">Smash Cake</Link>
                 </li>
                 <li>
                   <Link onClick={handleLinkClick} href="/service/mode">
@@ -136,6 +126,7 @@ const Navbar = () => {
                     Professional
                   </Link>
                 </li>
+
               </ul>
             </nav>
           )}

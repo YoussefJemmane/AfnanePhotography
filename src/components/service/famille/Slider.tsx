@@ -2,6 +2,9 @@ import React from 'react'
 
 import Image from "next/image";
 import img1 from "../../../../public/famille/PhotosAccueil-003.webp";
+import img2 from "../../../../public/famille/one-happy-family.webp";
+import img3 from "../../../../public/famille/photo-smiling-young-parents-with-little-child-lying-floor-isolated.webp";
+
 
 
 import { Splide, SplideSlide } from "splide-nextjs/react-splide";
@@ -18,7 +21,7 @@ interface SplideRef {
   };
 }
 const Slider = () => {
-  const images = [img1];
+  const images = [img1, img2, img3];
   const [activeSlide, setActiveSlide] = useState(0);
   const splideRef = useRef<SplideRef | null>(null);
 

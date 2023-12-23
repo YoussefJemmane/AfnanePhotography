@@ -36,7 +36,7 @@ const services = [
   {
     name: "Professional",
     image: img6,
-    href: '/service/professional',
+    href: '/service/proffesional',
   },
   {
     name: "Mode",

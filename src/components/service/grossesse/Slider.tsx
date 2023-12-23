@@ -1,7 +1,9 @@
 import React from 'react'
 
 import Image from "next/image";
-import img1 from "../../../../public/imagenotfound.webp";
+import img1 from "../../../../public/grossesse/beauty-glamour-young-pregnant-woman-blue-chiffon-blue.webp";
+import img2 from "../../../../public/grossesse/pregnant-woman-pink-dress-holds-hands-her-belly(1).webp";
+
 
 
 
@@ -19,7 +21,7 @@ interface SplideRef {
   };
 }
 const Slider = () => {
-  const images = [img1];
+  const images = [img1, img2];
   const [activeSlide, setActiveSlide] = useState(0);
   const splideRef = useRef<SplideRef | null>(null);
 

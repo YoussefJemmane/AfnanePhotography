@@ -1,7 +1,9 @@
 import React from 'react'
 
 import Image from "next/image";
-import img1 from "../../../../public/imagenotfound.webp";
+import img1 from "../../../../public/proffesional/0 (1).webp";
+import img2 from "../../../../public/proffesional/0.webp";
+import img3 from "../../../../public/proffesional/_MG_2072.webp";
 
 
 
@@ -19,7 +21,7 @@ interface SplideRef {
   };
 }
 const Slider = () => {
-  const images = [img1];
+  const images = [img1, img2, img3];
   const [activeSlide, setActiveSlide] = useState(0);
   const splideRef = useRef<SplideRef | null>(null);
 
