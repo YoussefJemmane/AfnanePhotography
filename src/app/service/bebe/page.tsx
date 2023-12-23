@@ -1,14 +1,14 @@
-"use client"
 import React, { Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import logo from "../../../../public/logo-FINAL-afnane.webp"
 import Image from "next/image";
-const Bebe = () => {
-  const Header = React.lazy(() => import("@/components/service/bebe/Header"));
-  const Slider = React.lazy(() => import("@/components/service/bebe/Slider"));
-  const Tarifs = React.lazy(() => import("@/components/service/bebe/Tarifs"));
 
+const LazyBebeHeader = React.lazy(() => import("@/components/service/bebe/Header"));
+const LazyBebeSlider = React.lazy(() => import("@/components/service/bebe/Slider"));
+const LazyBebeTarifs = React.lazy(() => import("@/components/service/bebe/Tarifs"));
+
+const Bebe = () => {
   return (
     <div>
       <Suspense fallback={<div className="h-screen flex items-center justify-center">
@@ -16,12 +16,12 @@ const Bebe = () => {
       </div>}>
         <Navbar />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-7" id="bebe">
-          <Header />
+          <LazyBebeHeader />
           <div className="pt-4">
-            <Slider />
+            <LazyBebeSlider />
           </div>
           <div className="pt-4">
-            <Tarifs />
+            <LazyBebeTarifs />
           </div>
         </div>
         <Footer />

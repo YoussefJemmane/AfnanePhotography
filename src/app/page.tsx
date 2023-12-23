@@ -4,10 +4,11 @@ import Navbar from '@/components/Navbar'
 import logo from "../../public/logo-FINAL-afnane.webp"
 import Image from "next/image";
 
+const LazyStyle = React.lazy(() => import("@/components/Style"));
+const LazySlider = React.lazy(() => import("@/components/Slider"));
+const LazyServices = React.lazy(() => import("@/components/Services"));
+
 export default function Home() {
-  const Style = React.lazy(() => import("@/components/Style"));
-  const Slider = React.lazy(() => import("@/components/Slider"));
-  const Services = React.lazy(() => import("@/components/Services"));
   return (
     <>
       <Suspense fallback={<div className="h-screen flex items-center justify-center">
@@ -15,13 +16,12 @@ export default function Home() {
       </div>}>
         <Navbar />
         <div className='relative' >
-          <Slider />
-          <Style />
-          <Services />
+          <LazySlider />
+          <LazyStyle />
+          <LazyServices />
           <Footer />
         </div>
       </Suspense>
-
     </>
   )
 }

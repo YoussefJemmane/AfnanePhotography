@@ -1,5 +1,5 @@
+"use client"
 import React from 'react'
-
 import Image from "next/image";
 import img1 from "../../../../public/nouveaune/IMG20231005165037.webp";
 import img2 from "../../../../public/nouveaune/imp-2.webp";

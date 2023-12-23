@@ -1,5 +1,5 @@
+"use client"
 import React from 'react'
-
 import Image from "next/image";
 import img1 from "../../../../public/grossesse/beauty-glamour-young-pregnant-woman-blue-chiffon-blue.webp";
 import img2 from "../../../../public/grossesse/pregnant-woman-pink-dress-holds-hands-her-belly(1).webp";
