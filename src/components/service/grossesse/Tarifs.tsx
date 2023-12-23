@@ -5,14 +5,14 @@ const Tarifs = () => {
         <div>
             <div className="card">
                 <h1 className="services text-3xl text-center w-full">
-                    Séance photo Bébé 
+                    Séance photo Grossesse   
                 </h1>
-                <h1 className="text-center text-3xl">600 dh</h1>
+                <h1 className="text-center text-3xl">500 dh</h1>
                 <ul className="list-disc list-inside">
                     <li>Environ 1h de séance photo</li>
                     <li>Accessoires et tenues à disposition</li>
-                    <li>Les photos de famille sont possibles</li>
-                    <li>10 images retouchées (sans tirage)</li>
+                    <li>Conjoint et ainé convié </li>
+                    <li>10 images retouchées</li>
                     
                 </ul>
             </div>
