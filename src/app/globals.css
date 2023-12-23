@@ -45,3 +45,20 @@ h1 {
   display: block;
   margin: 0 auto;
  }
+ .dialog {
+  top: 50px;
+  position: relative;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  max-height: calc(100vh - 20px);
+  overflow: auto;
+ }
+ 
+ .images {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+ }

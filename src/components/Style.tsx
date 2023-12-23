@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import img1 from '../../public/famille/PhotosAccueil-003.webp'
+import img1 from '../../public/IMG_20231223_155056.webp'
 
 const Style = () => {
   return (

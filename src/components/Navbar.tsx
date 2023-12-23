@@ -81,7 +81,7 @@ const Navbar = () => {
                 </li>
 
                 <li>
-                  <Link onClick={handleLinkClick} href="/#gallery">
+                  <Link onClick={handleLinkClick} href="/gallerie">
                     Gallery
                   </Link>
                 </li>
@@ -188,7 +188,7 @@ const Navbar = () => {
               </li>
 
               <li>
-                <Link href="/#gallery">Gallery</Link>
+                <Link href="/gallerie">Gallery</Link>
               </li>
               <li>
                 <Link href="/#contactus">Contact Us</Link>
