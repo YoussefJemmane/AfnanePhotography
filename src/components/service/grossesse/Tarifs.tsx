@@ -7,7 +7,7 @@ const Tarifs = () => {
                 <h1 className="services text-3xl text-center w-full">
                     Séance photo Grossesse   
                 </h1>
-                <h1 className="text-center text-3xl">500 dh</h1>
+                <h1 className="text-center text-3xl">800 dh</h1>
                 <ul className="list-disc list-inside">
                     <li>Environ 1h de séance photo</li>
                     <li>Accessoires et tenues à disposition</li>
