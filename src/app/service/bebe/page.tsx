@@ -3,7 +3,8 @@ import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import logo from "../../../../public/logo-FINAL-afnane.webp"
 import Image from "next/image";
-
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 const LazyBebeHeader = React.lazy(() => import("@/components/service/bebe/Header"));
 const LazyBebeSlider = React.lazy(() => import("@/components/service/bebe/Slider"));
 const LazyBebeTarifs = React.lazy(() => import("@/components/service/bebe/Tarifs"));

@@ -3,6 +3,8 @@ import Navbar from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import logo from "../../../../public/logo-FINAL-afnane.webp"
 import Image from "next/image";
+export const dynamic = "force-dynamic";
+export const fetchCache = "force-no-store";
 const Mode = () => {
   const Header = React.lazy(() => import("@/components/service/mode/Header"));
   const Slider = React.lazy(() => import("@/components/service/mode/Slider"));

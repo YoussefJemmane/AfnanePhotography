@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import img1 from "../../public/poster/noueau né.webp";
+import img1 from "../../public/poster/noueau.webp";
 import img2 from '../../public/poster/bebe.webp'
 import img3 from '../../public/poster/smash cake.webp'
 import img4 from '../../public/poster/grossesse.webp'
@@ -51,7 +51,7 @@ const Services = () => {
       <div className="pt-24">
         <h1 className="services text-3xl text-center w-full">Services</h1>
         <div className='flex justify-center py-5   text-lg'>
-          <p>What Services do you like to choose?</p>
+          <p>Quels services aimez-vous choisir ?</p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((service, index) => (
