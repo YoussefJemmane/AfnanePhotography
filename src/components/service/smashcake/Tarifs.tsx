@@ -10,10 +10,10 @@ const Tarifs = () => {
                 <h1 className="text-center text-3xl">700 dh </h1>
                 <ul className="list-disc list-inside">
                     <li>Environ 1h30 de séance photo</li>
-                    <li>des portrait bébé avec un décor simple</li>
-                    <li>un décore d&apos;anniversaire avec un bon gâteau</li>
-                    <li>Les photos de famille sont possibles</li>
-                    <li>15 images retouchées (avec tirage)</li>
+                    <li>des portrait bébé avec un décor simple et élégant</li>
+                    <li>un décore d&apos;anniversaire avec un joli gâteau</li>
+                    <li>Photos de famille possibles sur demande</li>
+                    <li>15 images retouchées incluses</li>
                 </ul>
             </div>
         </div>

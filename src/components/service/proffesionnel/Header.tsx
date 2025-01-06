@@ -8,7 +8,7 @@ const Header = () => {
             </h1>
             <div className='flex justify-center py-5   text-lg'>
                 <p>
-                    Osez prendre la pose, osez penser à vous. Oui, cela fait un bien fou !
+                    Osez prendre la pose, osez penser à vous. Cela vous fera un bien fou !
                 </p>
             </div>
         </div>

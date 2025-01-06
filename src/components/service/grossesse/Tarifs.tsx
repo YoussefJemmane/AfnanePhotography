@@ -9,11 +9,10 @@ const Tarifs = () => {
                 </h1>
                 <h1 className="text-center text-3xl">800 dh</h1>
                 <ul className="list-disc list-inside">
-                    <li>Environ 1h de séance photo</li>
+                    <li>3 Robes</li>
                     <li>Accessoires et tenues à disposition</li>
                     <li>Conjoint et ainé convié </li>
-                    <li>10 images retouchées</li>
-                    
+                    <li>15 images retouchées incluses</li>
                 </ul>
             </div>
         </div>
