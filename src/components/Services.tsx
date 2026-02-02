@@ -56,17 +56,15 @@ const Services = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((service, index) => (
             <Link href={service.href ? service.href : '/'} key={index}>
-              <div className="relative group aspect-ratio-16/9">
+              <div className="relative group">
                 <Image
                   src={service.image}
                   alt={service.name}
                   width={400}
                   height={225}
-                  layout="responsive" // Add this line
-                  quality={75} // Adjust the quality as needed
-                  objectFit="cover"
-                  className="border image"
-                  sizes={`(max-width: 600px) 480px, 800px`}
+                  quality={75}
+                  className="border image object-cover w-full h-auto"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <div className="flex justify-center items-center absolute inset-0 bg-black bg-opacity-0 text-white transition-all duration-500 ease-in-out group-hover:bg-opacity-50">
                   <h1 className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-xl">{service.name}</h1>

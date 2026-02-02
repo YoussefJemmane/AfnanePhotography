@@ -4,6 +4,7 @@ import './globals.css'
 import icon from '../../public/logo-noir.webp'
 import React from 'react'
 import Script from 'next/script'
+import { Analytics } from '@vercel/analytics/react'
 
 
 export const metadata: Metadata = {
@@ -51,7 +52,10 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href={icon.src} />
       </Head>
-      <body >{children}</body>
+      <body >
+        {children}
+        <Analytics />
+      </body>
 
     </html>
   )

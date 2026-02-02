@@ -65,7 +65,7 @@ const Lightbox: React.FC<LightboxProps> = ({ src, alt, onClose }) => {
     <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center z-10 ">
       <div className="bg-black opacity-50 absolute inset-0" onClick={onClose} />
       <div className="dialog max-w-md mx-auto rounded overflow-hidden shadow-lg relative bg-white flex items-center justify-center">
-        <Image src={src} alt={alt} layout="responsive" className="images" loading="lazy" />
+        <Image src={src} alt={alt} className="images w-full h-auto" loading="lazy" />
       </div>
     </div>
   );
@@ -97,10 +97,11 @@ const Gallerie = () => {
             <Image
               src={img.src}
               alt={img.alt}
-              layout="fixed"
-              className={`object-cover image h-[320px]`}
+              width={400}
+              height={320}
+              className="object-cover image h-[320px] w-full"
               loading="lazy"
-              sizes={`(max-width: 600px) 480px, 800px`}
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
               data-lightbox="gallery"
             />
           </button>

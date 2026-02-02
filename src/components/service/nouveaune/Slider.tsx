@@ -62,14 +62,15 @@ const Slider = () => {
         <div className=" mt-4">
           <div className="grid grid-cols-3 gap-x-1">
             {images.map((img, index) => (
-              <div key={index} onClick={() => handleImageClick(index)} className="">
+              <div key={index} onClick={() => handleImageClick(index)} className="cursor-pointer">
                 <Image
                   src={img}
                   alt={`Image ${index + 1}`}
-                  layout="fixed"
-                  className={`object-scale-down image h-[120px] ${index === activeSlide ? '' : 'grayscale'}`}
+                  width={200}
+                  height={120}
+                  className={`object-scale-down image h-[120px] w-auto ${index === activeSlide ? '' : 'grayscale'}`}
                   loading="lazy"
-                  sizes={`(max-width: 600px) 480px, 800px`}
+                  sizes="(max-width: 600px) 33vw, 200px"
                 />
               </div>
             ))}
