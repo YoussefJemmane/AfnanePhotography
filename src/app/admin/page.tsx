@@ -16,8 +16,8 @@ export default function AdminLogin() {
 
     // Check against environment variable
     if (code === process.env.NEXT_PUBLIC_ADMIN_CODE) {
-      // Store auth in sessionStorage (cleared when browser closes)
-      sessionStorage.setItem("admin_authenticated", "true");
+      // Store the code as token for API auth (cleared when browser closes)
+      sessionStorage.setItem("admin_token", code);
       router.push("/admin/dashboard");
     } else {
       setError("Code incorrect");

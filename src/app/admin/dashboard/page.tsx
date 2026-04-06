@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useRouter } from "next/navigation";
 import StatsCard from "@/components/admin/StatsCard";
 import { LineChart, BarChart, DoughnutChart } from "@/components/admin/Charts";
@@ -8,7 +8,32 @@ import TopPagesTable from "@/components/admin/TopPagesTable";
 
 type TimePeriod = "24h" | "7d" | "30d";
 
-// Icons as SVG components
+interface ChangeInfo {
+  value: string;
+  type: "positive" | "negative" | "neutral";
+}
+
+interface AnalyticsData {
+  overview: {
+    activeUsers: number;
+    pageViews: number;
+    avgDuration: string;
+    mobileRate: number;
+    changes: {
+      activeUsers: ChangeInfo;
+      pageViews: ChangeInfo;
+      avgDuration: ChangeInfo;
+      mobileRate: ChangeInfo;
+    };
+  };
+  timeSeries: { labels: string[]; values: number[] };
+  topPages: { path: string; views: number; uniqueVisitors: number; avgTime: string }[];
+  pagesBar: { labels: string[]; values: number[] };
+  devices: { labels: string[]; values: number[] };
+  browsers: { labels: string[]; values: number[] };
+}
+
+// Icons
 const UsersIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
@@ -40,99 +65,111 @@ const LogoutIcon = () => (
   </svg>
 );
 
-// Generate mock data based on time period
-function generateMockData(period: TimePeriod) {
-  const now = new Date();
-  const labels: string[] = [];
-  const values: number[] = [];
-  
-  if (period === "24h") {
-    for (let i = 23; i >= 0; i--) {
-      const hour = new Date(now.getTime() - i * 60 * 60 * 1000);
-      labels.push(`${hour.getHours()}:00`);
-      values.push(Math.floor(Math.random() * 50) + 10);
-    }
-  } else if (period === "7d") {
-    const days = ["Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam"];
-    for (let i = 6; i >= 0; i--) {
-      const day = new Date(now.getTime() - i * 24 * 60 * 60 * 1000);
-      labels.push(days[day.getDay()]);
-      values.push(Math.floor(Math.random() * 300) + 100);
-    }
-  } else {
-    for (let i = 29; i >= 0; i--) {
-      const day = new Date(now.getTime() - i * 24 * 60 * 60 * 1000);
-      labels.push(`${day.getDate()}/${day.getMonth() + 1}`);
-      values.push(Math.floor(Math.random() * 500) + 150);
-    }
-  }
-  
-  return { labels, values };
-}
-
-function generateTopPages() {
-  return [
-    { path: "/", views: Math.floor(Math.random() * 1000) + 500, uniqueVisitors: Math.floor(Math.random() * 500) + 200, avgTime: "2m 34s" },
-    { path: "/gallerie", views: Math.floor(Math.random() * 800) + 300, uniqueVisitors: Math.floor(Math.random() * 400) + 150, avgTime: "3m 12s" },
-    { path: "/service/nouveaune", views: Math.floor(Math.random() * 500) + 200, uniqueVisitors: Math.floor(Math.random() * 300) + 100, avgTime: "1m 45s" },
-    { path: "/service/bebe", views: Math.floor(Math.random() * 400) + 150, uniqueVisitors: Math.floor(Math.random() * 250) + 80, avgTime: "2m 08s" },
-    { path: "/service/famille", views: Math.floor(Math.random() * 350) + 100, uniqueVisitors: Math.floor(Math.random() * 200) + 60, avgTime: "1m 56s" },
-    { path: "/service/grossesse", views: Math.floor(Math.random() * 300) + 80, uniqueVisitors: Math.floor(Math.random() * 180) + 50, avgTime: "2m 21s" },
-    { path: "/service/mode", views: Math.floor(Math.random() * 250) + 70, uniqueVisitors: Math.floor(Math.random() * 150) + 40, avgTime: "1m 33s" },
-  ];
-}
-
 export default function AdminDashboard() {
   const router = useRouter();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [period, setPeriod] = useState<TimePeriod>("7d");
+  const [data, setData] = useState<AnalyticsData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  const fetchAnalytics = useCallback(
+    async (p: TimePeriod) => {
+      const token = sessionStorage.getItem("admin_token");
+      if (!token) {
+        router.push("/admin");
+        return;
+      }
+
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        const res = await fetch(`/api/analytics?period=${p}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        if (res.status === 401) {
+          sessionStorage.removeItem("admin_token");
+          router.push("/admin");
+          return;
+        }
+
+        if (!res.ok) {
+          const err = await res.json();
+          throw new Error(err.message || "Erreur lors du chargement des analytics");
+        }
+
+        setData(await res.json());
+      } catch (err: unknown) {
+        const message = err instanceof Error ? err.message : "Erreur inconnue";
+        setError(message);
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [router]
+  );
 
   useEffect(() => {
-    // Check authentication
-    const auth = sessionStorage.getItem("admin_authenticated");
-    if (auth !== "true") {
+    const token = sessionStorage.getItem("admin_token");
+    if (!token) {
       router.push("/admin");
-    } else {
-      setIsAuthenticated(true);
-      setIsLoading(false);
+      return;
     }
-  }, [router]);
+    fetchAnalytics(period);
+  }, [period, fetchAnalytics, router]);
 
   const handleLogout = () => {
-    sessionStorage.removeItem("admin_authenticated");
+    sessionStorage.removeItem("admin_token");
     router.push("/admin");
   };
 
-  if (isLoading || !isAuthenticated) {
+  // Loading state
+  if (isLoading && !data) {
     return (
       <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-800"></div>
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-gray-800 mx-auto"></div>
+          <p className="mt-4 text-gray-500">Chargement des analytics...</p>
+        </div>
       </div>
     );
   }
 
-  const pageViewsData = generateMockData(period);
-  const topPages = generateTopPages();
-  
-  const totalViews = pageViewsData.values.reduce((a, b) => a + b, 0);
-  const uniqueVisitors = Math.floor(totalViews * 0.65);
-  const avgTimeOnSite = "2m 18s";
+  // Error state
+  if (error && !data) {
+    return (
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center px-4">
+        <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8 text-center">
+          <div className="text-red-500 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z" />
+            </svg>
+          </div>
+          <h2 className="text-xl font-bold text-gray-800 mb-2">Erreur</h2>
+          <p className="text-gray-600 mb-6">{error}</p>
+          <div className="space-y-3">
+            <button
+              onClick={() => fetchAnalytics(period)}
+              className="w-full bg-gray-800 text-white py-2 rounded-lg hover:bg-gray-700 transition-colors"
+            >
+              Réessayer
+            </button>
+            <button
+              onClick={handleLogout}
+              className="w-full bg-gray-100 text-gray-600 py-2 rounded-lg hover:bg-gray-200 transition-colors"
+            >
+              Déconnexion
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
-  const deviceData = {
-    labels: ["Mobile", "Desktop", "Tablet"],
-    values: [55, 38, 7],
-  };
+  if (!data) return null;
 
-  const browserData = {
-    labels: ["Chrome", "Safari", "Firefox", "Edge", "Autre"],
-    values: [45, 30, 12, 8, 5],
-  };
-
-  const pagesBarData = {
-    labels: topPages.slice(0, 5).map(p => p.path === "/" ? "Accueil" : p.path.split("/").pop() || p.path),
-    values: topPages.slice(0, 5).map(p => p.views),
-  };
+  const { overview, timeSeries, topPages, pagesBar, devices, browsers } = data;
 
   return (
     <div className="min-h-screen bg-gray-100">
@@ -149,7 +186,7 @@ export default function AdminDashboard() {
               className="flex items-center gap-2 px-4 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-lg transition-colors"
             >
               <LogoutIcon />
-              <span>Déconnexion</span>
+              <span>Deconnexion</span>
             </button>
           </div>
         </div>
@@ -159,75 +196,78 @@ export default function AdminDashboard() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Time Period Selector */}
         <div className="mb-8 flex items-center gap-2">
-          <span className="text-sm text-gray-500 mr-2">Période:</span>
+          <span className="text-sm text-gray-500 mr-2">Periode:</span>
           {(["24h", "7d", "30d"] as TimePeriod[]).map((p) => (
             <button
               key={p}
               onClick={() => setPeriod(p)}
+              disabled={isLoading}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                 period === p
                   ? "bg-gray-800 text-white"
                   : "bg-white text-gray-600 hover:bg-gray-50 border border-gray-200"
-              }`}
+              } ${isLoading ? "opacity-50 cursor-not-allowed" : ""}`}
             >
               {p === "24h" ? "24 heures" : p === "7d" ? "7 jours" : "30 jours"}
             </button>
           ))}
+          {isLoading && (
+            <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-gray-800 ml-3"></div>
+          )}
         </div>
 
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <StatsCard
             title="Visiteurs Uniques"
-            value={uniqueVisitors.toLocaleString()}
-            change="+12.5%"
-            changeType="positive"
+            value={overview.activeUsers.toLocaleString()}
+            change={overview.changes.activeUsers.value}
+            changeType={overview.changes.activeUsers.type}
             icon={<UsersIcon />}
           />
           <StatsCard
             title="Pages Vues"
-            value={totalViews.toLocaleString()}
-            change="+8.2%"
-            changeType="positive"
+            value={overview.pageViews.toLocaleString()}
+            change={overview.changes.pageViews.value}
+            changeType={overview.changes.pageViews.type}
             icon={<EyeIcon />}
           />
           <StatsCard
             title="Temps Moyen"
-            value={avgTimeOnSite}
-            change="-2.4%"
-            changeType="negative"
+            value={overview.avgDuration}
+            change={overview.changes.avgDuration.value}
+            changeType={overview.changes.avgDuration.type}
             icon={<ClockIcon />}
           />
           <StatsCard
             title="Taux Mobile"
-            value="55%"
-            change="+5.1%"
-            changeType="positive"
+            value={`${overview.mobileRate}%`}
+            change={overview.changes.mobileRate.value}
+            changeType={overview.changes.mobileRate.type}
             icon={<DeviceIcon />}
           />
         </div>
 
         {/* Charts Row 1 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <LineChart data={pageViewsData} title="Évolution des visites" />
-          <BarChart data={pagesBarData} title="Pages les plus visitées" />
+          <LineChart data={timeSeries} title="Evolution des visites" />
+          <BarChart data={pagesBar} title="Pages les plus visitees" />
         </div>
 
         {/* Charts Row 2 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          <DoughnutChart data={deviceData} title="Appareils" />
-          <DoughnutChart data={browserData} title="Navigateurs" />
+          <DoughnutChart data={devices} title="Appareils" />
+          <DoughnutChart data={browsers} title="Navigateurs" />
         </div>
 
         {/* Top Pages Table */}
-        <TopPagesTable data={topPages} title="Détails par page" />
+        <TopPagesTable data={topPages} title="Details par page" />
 
-        {/* Footer Note */}
+        {/* Info Note */}
         <div className="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-100">
           <p className="text-sm text-blue-800">
-            <strong>Note:</strong> Ces données sont des exemples de démonstration. 
-            Une fois déployé sur Vercel, les vraies données d'analytics seront disponibles 
-            via le tableau de bord Vercel Analytics ou l'API Vercel.
+            <strong>Note:</strong> Les donnees proviennent de Google Analytics (GA4).
+            Il peut y avoir un delai de 24-48h avant que les nouvelles visites apparaissent.
           </p>
         </div>
       </main>
