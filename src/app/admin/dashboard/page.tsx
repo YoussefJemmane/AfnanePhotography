@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { useRouter } from "next/navigation";
 import StatsCard from "@/components/admin/StatsCard";
 import { LineChart, BarChart, DoughnutChart } from "@/components/admin/Charts";
@@ -11,6 +11,13 @@ type TimePeriod = "24h" | "7d" | "30d";
 interface ChangeInfo {
   value: string;
   type: "positive" | "negative" | "neutral";
+}
+
+interface RealtimeData {
+  activeUsers: number;
+  pageViews: number;
+  topPages: { page: string; activeUsers: number }[];
+  devices: { device: string; activeUsers: number }[];
 }
 
 interface AnalyticsData {
@@ -71,6 +78,32 @@ export default function AdminDashboard() {
   const [data, setData] = useState<AnalyticsData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [realtime, setRealtime] = useState<RealtimeData | null>(null);
+  const realtimeInterval = useRef<NodeJS.Timeout | null>(null);
+
+  const fetchRealtime = useCallback(async () => {
+    const token = sessionStorage.getItem("admin_token");
+    if (!token) return;
+    try {
+      const res = await fetch("/api/analytics/realtime", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (res.ok) {
+        setRealtime(await res.json());
+      }
+    } catch {
+      // silently fail for realtime — non-critical
+    }
+  }, []);
+
+  // Poll realtime every 30 seconds
+  useEffect(() => {
+    fetchRealtime();
+    realtimeInterval.current = setInterval(fetchRealtime, 30000);
+    return () => {
+      if (realtimeInterval.current) clearInterval(realtimeInterval.current);
+    };
+  }, [fetchRealtime]);
 
   const fetchAnalytics = useCallback(
     async (p: TimePeriod) => {
@@ -216,6 +249,52 @@ export default function AdminDashboard() {
           )}
         </div>
 
+        {/* Realtime Banner */}
+        {realtime && (
+          <div className="mb-8 bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <span className="relative flex h-3 w-3">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+              </span>
+              <h2 className="text-lg font-semibold text-gray-800">En direct</h2>
+              <span className="text-xs text-gray-400">Dernières 30 minutes</span>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div>
+                <p className="text-sm text-gray-500">Utilisateurs actifs</p>
+                <p className="text-2xl font-bold text-gray-800">{realtime.activeUsers}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Pages vues</p>
+                <p className="text-2xl font-bold text-gray-800">{realtime.pageViews}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Pages actives</p>
+                <div className="mt-1 space-y-1">
+                  {realtime.topPages.length > 0 ? realtime.topPages.slice(0, 3).map((p) => (
+                    <div key={p.page} className="flex items-center justify-between text-xs">
+                      <span className="text-gray-600 truncate max-w-[120px]">{p.page}</span>
+                      <span className="font-medium text-gray-800 ml-2">{p.activeUsers}</span>
+                    </div>
+                  )) : <span className="text-xs text-gray-400">Aucune activité</span>}
+                </div>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Appareils</p>
+                <div className="mt-1 space-y-1">
+                  {realtime.devices.length > 0 ? realtime.devices.map((d) => (
+                    <div key={d.device} className="flex items-center justify-between text-xs">
+                      <span className="text-gray-600 capitalize">{d.device}</span>
+                      <span className="font-medium text-gray-800 ml-2">{d.activeUsers}</span>
+                    </div>
+                  )) : <span className="text-xs text-gray-400">Aucune activité</span>}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <StatsCard
@@ -266,8 +345,8 @@ export default function AdminDashboard() {
         {/* Info Note */}
         <div className="mt-8 p-4 bg-blue-50 rounded-lg border border-blue-100">
           <p className="text-sm text-blue-800">
-            <strong>Note:</strong> Les donnees proviennent de Google Analytics (GA4).
-            Il peut y avoir un delai de 24-48h avant que les nouvelles visites apparaissent.
+            <strong>Note:</strong> La section &quot;En direct&quot; se met a jour toutes les 30 secondes.
+            Les statistiques historiques proviennent de Google Analytics (GA4) et peuvent avoir un delai de 24-48h.
           </p>
         </div>
       </main>
